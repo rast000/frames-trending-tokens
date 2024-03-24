@@ -11,9 +11,9 @@ export function Candle({ open, close, high, low, floor, ceil }: { open: number, 
   const lowPad = Math.floor(((Math.min(yStart, low) - floor) / height) * 9600) / 100;
 
   return <div tw="ml-2 relative flex flex-col items-center flex-grow pb-5 group">
-    <div tw={`relative flex h-${topHeight} w-1 justify-center rounded-t-lg bg-${color}-400`}></div>
-    <div tw={`relative flex h-${bodyHeight} w-full justify-center rounded-lg bg-${color}-400`}></div>
-    <div tw={`relative flex h-${lowHeight} w-1 justify-center rounded-b-lg bg-${color}-400`}></div>
+    <div tw={`relative h-${topHeight} w-1 justify-center rounded-t-lg bg-${color}-400`}></div>
+    <div tw={`relative h-${bodyHeight} w-full justify-center rounded-lg bg-${color}-400`}></div>
+    <div tw={`relative h-${lowHeight} w-1 justify-center rounded-b-lg bg-${color}-400`}></div>
     <div tw={`h-${lowPad}`}></div>
   </div>
 }
