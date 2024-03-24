@@ -11,10 +11,10 @@ const handleRequest = frames(async (ctx) => {
       </div>
     ),
     buttons: [
-      <Button action="post" target="/trending">
+      <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/trending"}>
         👀 View
       </Button>,
-      <Button action="post" target="/uniswap">
+      <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/uniswap"}>
         🦄 Uniswap Info
       </Button>
     ],

@@ -23,8 +23,8 @@ const handleRequest = frames(async (ctx) => {
       <CandleChart data={data} />
     ),
     buttons: [
-      <Button action="post" target="/">🏠 Home</Button>,
-      <Button action="post" target="/trending">🔙 Back</Button>,
+      <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/"}>🏠 Home</Button>,
+      <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/trending"}>🔙 Back</Button>,
     ],
   };
 });

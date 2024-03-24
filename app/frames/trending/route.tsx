@@ -28,13 +28,13 @@ const handleRequest = frames(async (ctx) => {
     ),
     buttons: [
       pageIndex > 0 ?
-        <Button action="post" target={`/trending?pageIndex=${pageIndex - 1}`}>⬅️</Button> :
-        <Button action="post" target={`/`}>🏠 Home</Button>,
-      <Button action="post" target={`/token?token=${data[pageIndex * 2 + 0].address}`}>{data[pageIndex * 2 + 0].symbol}</Button>,
-      <Button action="post" target={`/token?token=${data[pageIndex * 2 + 1].address}`}>{data[pageIndex * 2 + 1].symbol}</Button>,
+        <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + `/trending?pageIndex=${pageIndex - 1}`}>⬅️</Button> :
+        <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + `/`}>🏠 Home</Button>,
+      <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + `/token?token=${data[pageIndex * 2 + 0].address}`}>{data[pageIndex * 2 + 0].symbol}</Button>,
+      <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + `/token?token=${data[pageIndex * 2 + 1].address}`}>{data[pageIndex * 2 + 1].symbol}</Button>,
       pageIndex < totalPages ?
-        <Button action="post" target={`/trending?pageIndex=${pageIndex + 1}`}>➡️</Button> :
-        <Button action="post" target={`/`}>🏠 Home</Button>,
+        <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + `/trending?pageIndex=${pageIndex + 1}`}>➡️</Button> :
+        <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + `/`}>🏠 Home</Button>,
     ],
   };
 });
