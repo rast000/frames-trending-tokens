@@ -20,7 +20,6 @@ export async function GET() {
 
   const graphQLClient = new GraphQLClient(GRAPHQL_ENDPOINT, {
     fetch,
-    cache: "no-store",
   });
 
   const response: any = await graphQLClient.request(document);

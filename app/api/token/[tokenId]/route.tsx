@@ -71,7 +71,6 @@ export async function GET(req: NextRequest, { params }: { params: any }) {
 
   const graphQLClient = new GraphQLClient(GRAPHQL_ENDPOINT, {
     fetch,
-    cache: "no-store",
   });
 
   const format = (t: Token) => ({ timestamp: parseFloat(t.timestamp), price: Math.abs(parseFloat(t.amount0)/parseFloat(t.amount1)) })
