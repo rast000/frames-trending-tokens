@@ -14,8 +14,10 @@ const nextConfig = {
       },
     ],
   },
-  fastRefresh: true,
-  concurrentFeatures: true,
+  swcMinify: true,
+  images: {
+    unoptimized: true,
+  },
   typescript: {
     ignoreBuildErrors: true, // :(
   },  
