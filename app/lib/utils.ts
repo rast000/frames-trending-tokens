@@ -59,7 +59,7 @@ export function currentURL(pathname: string): URL {
 }
 
 export function vercelURL() {
-  return process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
+  return process.env.NEXT_PUBLIC_DOMAIN
+    ? `https://${process.env.NEXT_PUBLIC_DOMAIN}`
     : undefined;
 }
