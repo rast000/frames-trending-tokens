@@ -14,6 +14,8 @@ const nextConfig = {
       },
     ],
   },
+  fastRefresh: true,
+  concurrentFeatures: true,
   typescript: {
     ignoreBuildErrors: true, // :(
   },  
