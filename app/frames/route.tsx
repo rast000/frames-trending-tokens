@@ -18,6 +18,13 @@ const handleRequest = frames(async (ctx) => {
         🦄 Uniswap Info
       </Button>
     ],
+    accepts: [{
+      id: 'farcaster',
+      version: 'vNext'
+  },{
+      id: 'xmtp',
+      version: 'vNext'
+  }]
   };
 });
 
