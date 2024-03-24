@@ -43,10 +43,10 @@ const handleRequest = frames(async (ctx) => {
       selectChart(type)
     ),
     buttons: [
-      <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/"}>🏠 Home</Button>,
-      (type != "native" ? <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/uniswap?type=native"}>💎 ETH</Button> : null),
-      (type != "usd" ? <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/uniswap?type=usd"}>💵 USD</Button> : null),
-      (type != "tx" ? <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/uniswap?type=tx"}>🧾 Tx</Button> : null)
+      <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames" + "/"}>🏠 Home</Button>,
+      (type != "native" ? <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames" + "/uniswap?type=native"}>💎 ETH</Button> : null),
+      (type != "usd" ? <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames" + "/uniswap?type=usd"}>💵 USD</Button> : null),
+      (type != "tx" ? <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames" + "/uniswap?type=tx"}>🧾 Tx</Button> : null)
     ],
   };
 });
