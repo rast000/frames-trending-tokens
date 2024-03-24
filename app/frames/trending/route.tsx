@@ -36,6 +36,10 @@ const handleRequest = frames(async (ctx) => {
         <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames" + `/trending?pageIndex=${pageIndex + 1}`}>➡️</Button> :
         <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames"}>🏠 Home</Button>,
     ],
+    headers: {
+      // Max cache age in seconds
+      "Cache-Control": "max-age=300",
+    },
   };
 });
 
