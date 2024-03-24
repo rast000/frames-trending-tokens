@@ -4,12 +4,7 @@ import { frames } from "./frames";
 
 const handleRequest = frames(async (ctx) => {
   return {
-    image: (
-      <div tw="flex w-full h-full flex-col items-center">
-        <img tw="absolute" style={{ opacity: 0.25 }} src={process.env.NEXT_PUBLIC_DOMAIN + "/example.png"} />
-        <div tw="flex flex-row h-full items-center"><h2>🔥🔥🔥 Trending on Base</h2></div>
-      </div>
-    ),
+    image: process.env.NEXT_PUBLIC_DOMAIN + "/api/image/main",
     buttons: [
       <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames" + "/trending"}>
         👀 View
