@@ -36,7 +36,7 @@ export function TokenInfo({ tokenInfo }: { tokenInfo: TokenInfoProps }) {
       tw="flex text-left flex-col items-center w-full h-full p-6 pb-6 bg-white rounded-lg sm:p-8">
       <div tw="flex w-full flex-row items-center items-left text-left">
         <img src={tokenInfo.token.logo.small} width={32} height={32} />
-        <h1 tw="text-2xl ml-2 text-left">{tokenInfo.token.name}
+        <h1 tw="text-3xl ml-2 text-left">{tokenInfo.token.name}
           <span tw="ml-4 text-slate-500">{tokenInfo.token.symbol}</span>
         </h1>
       </div>

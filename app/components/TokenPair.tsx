@@ -9,12 +9,12 @@ export interface TokenProps {
 
 export function TokenCard({ token }: { token: TokenProps }) {
   // console.log(token)
-  return <div style={{ "display": "flex", "flexGrow": "1", "flexDirection": "column", "alignItems": "center",
+  return <div tw="flex-1" style={{ "display": "flex", "flexDirection": "column", "alignItems": "center",
     border: "1px solid #6B7280", margin: "20px", padding: "20px", paddingBottom: "40px", borderRadius: "30px"
    }}>
-    <div style={{ "display": "flex" }}>
-    <p tw="overflow-x-clip" style={{ "color": "#111827" }}>{token.name}</p>
-    <p style={{ "marginLeft": "10px", "color": "#6B7280" }}>{token.symbol}</p>
+    <div tw="overflow-hidden" style={{ "display": "flex" }}>
+    <p tw="text-3xl" style={{ "color": "#111827" }}>{token.name}</p>
+    <p tw="text-3xl" style={{ "marginLeft": "10px", "color": "#6B7280" }}>{token.symbol}</p>
     </div>
     <img style={{ "borderRadius": "64px", width: "250px", height: "250px" }} src={token.logo?.small || `${process.env.NEXT_PUBLIC_DOMAIN}/empty.png`} />
   </div>

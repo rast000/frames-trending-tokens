@@ -14,7 +14,7 @@ export function BarChart({ title, barData }: { title: string, barData: BarProps[
     tw="p-8"
   >
     <div tw="flex flex-col items-center w-full h-full p-6 pb-6 bg-white rounded-lg border-solid border-2 border-slate-200 p-6 pb-8">
-      <h1 tw="text-2xl font-bold">{title}</h1>
+      <h1 tw="text-3xl font-bold">{title}</h1>
       <div tw="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
         {barData.map((bar, i) => <Bar key={i} bar={bar} valueMax={valueMax} />)}
       </div>

@@ -3,6 +3,7 @@ import { GraphQLClient, gql } from "graphql-request";
 import { NextRequest, NextResponse } from "next/server";
 import { init, fetchQuery } from "@airstack/node";
 import { TokenInfoProps } from "@/app/components/TokenInfo";
+import { unstable_cache as cache } from 'next/cache';
 
 init(process.env.AIRSTACK_API_KEY || "");
 
@@ -73,7 +74,7 @@ export async function GET(req: NextRequest, { params }: { params: any }) {
     fetch,
   });
 
-  const format = (t: Token) => ({ timestamp: parseFloat(t.timestamp), price: Math.abs(parseFloat(t.amount0)/parseFloat(t.amount1)) })
+  const format = (t: Token) => ({ timestamp: parseFloat(t.timestamp), price: Math.abs(parseFloat(t.amount0) / parseFloat(t.amount1)) })
 
   const { data: tokenData, error }: QueryResponse = await fetchQuery(query);
 
@@ -81,7 +82,13 @@ export async function GET(req: NextRequest, { params }: { params: any }) {
     throw new Error(error.message);
   }
 
-  const response: any = await graphQLClient.request(swaps);
+  const fetchGraph = await cache(async () => {
+    const response: any = await graphQLClient.request(swaps);
+    return response
+  }, ["tx-history", tokenId], { revalidate: 60 });
+  
+  const response = await fetchGraph();
+
   if (response?.wethToken && tokenData.Tokens.Token.length != 0) {
     const tokenInfo: TokenInfoProps = {
       swaps: response.wethToken.map(format).reverse(),

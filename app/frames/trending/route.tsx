@@ -15,17 +15,13 @@ async function getData() {
 
   return res.json()
 }
-const totalPages = 5;
+const totalPages = 4;
 
 const handleRequest = frames(async (ctx) => {
   const data = await getData();
   const pageIndex = Number(ctx.searchParams.pageIndex || 0);
-  const token0 = data[pageIndex * 2 + 0];
-  const token1 = data[pageIndex * 2 + 1];
   return {
-    image: (
-      <TokenPair tokenList={[token0, token1]} />
-    ),
+    image: process.env.NEXT_PUBLIC_DOMAIN + `/api/image/trending?pageIndex=${pageIndex}`,
     buttons: [
       pageIndex > 0 ?
         <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames" + `/trending?pageIndex=${pageIndex - 1}`}>⬅️</Button> :

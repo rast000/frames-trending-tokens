@@ -2,6 +2,7 @@
 import { GraphQLClient, gql } from "graphql-request";
 import { init, fetchQuery } from "@airstack/node";
 import { TokenProps } from "@/app/components/TokenList";
+import { unstable_cache as cache } from 'next/cache';
 
 init(process.env.AIRSTACK_API_KEY || "");
 
@@ -53,7 +54,11 @@ const query = `query MyQuery {
 //   fetch(url, options);
 
 export async function GET() {
-  const { data, error }: QueryResponse = await fetchQuery(query);
+  const fetch = await cache(async () => {
+    const { data, error }: QueryResponse = await fetchQuery(query);
+    return { data, error };
+  }, ["api-call"], { revalidate: 3600 }); 
+  const { data, error } = await fetch();
 
   if (error) {
     throw new Error(error.message);
