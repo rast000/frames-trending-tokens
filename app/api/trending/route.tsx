@@ -30,7 +30,7 @@ interface Social {
 
 const query = `query MyQuery {
   TrendingTokens(
-    input: {transferType: all, timeFrame: one_hour, audience: farcaster, blockchain: base, criteria: unique_wallets}
+    input: {transferType: all, timeFrame: one_hour, audience: farcaster, blockchain: base, criteria: unique_wallets, limit: 10}
   ) {
     TrendingToken {
       address
