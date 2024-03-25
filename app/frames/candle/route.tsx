@@ -26,6 +26,13 @@ const handleRequest = frames(async (ctx) => {
       <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames"}>🏠 Home</Button>,
       <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames" + "/trending"}>🔙 Back</Button>,
     ],
+    accepts: [{
+      id: 'farcaster',
+      version: 'vNext'
+    }, {
+      id: 'xmtp',
+      version: 'vNext'
+    }],
   };
 });
 

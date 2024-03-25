@@ -13,6 +13,13 @@ const handleRequest = frames(async (ctx) => {
       (type != "usd" ? <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames" + "/uniswap?type=usd"}>💵 USD</Button> : null),
       (type != "tx" ? <Button action="post" target={process.env.NEXT_PUBLIC_DOMAIN + "/frames" + "/uniswap?type=tx"}>🧾 Tx</Button> : null)
     ],
+    accepts: [{
+      id: 'farcaster',
+      version: 'vNext'
+    }, {
+      id: 'xmtp',
+      version: 'vNext'
+    }]
   };
 });
 
